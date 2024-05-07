@@ -5,8 +5,10 @@ body {
   padding: 0;
 }
 
-.save-note, .new-note, .clear-btn {
-  display: none;
+.save-note,
+.new-note,
+.clear-btn {
+  display: inline-block !important;
 }
 
 .icons {
