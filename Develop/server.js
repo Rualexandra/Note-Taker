@@ -19,13 +19,14 @@ app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 // API routes
 app.get("/api/notes", (req, res) => {
-  fs.readFile("db.json", "utf8", (err, data) => {
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    console.log(data)
     if (err) {
       console.error(err);
       res.status(500).json({ error: "Internal server error" });
@@ -36,7 +37,7 @@ app.get("/api/notes", (req, res) => {
 });
 
 app.post("/api/notes", (req, res) => {
-  fs.readFile("db.json", "utf8", (err, data) => {
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
     if (err) {
       console.error(err);
       res.status(500).json({ error: "Internal server error" });
@@ -46,7 +47,7 @@ app.post("/api/notes", (req, res) => {
     const newNote = req.body;
     newNote.id = uuidv4(); // Generate unique ID
     notes.push(newNote);
-    fs.writeFile("db.json", JSON.stringify(notes), (err) => {
+    fs.writeFile("./db/db.json", JSON.stringify(notes), (err) => {
       if (err) {
         console.error(err);
         res.status(500).json({ error: "Internal server error" });
@@ -60,7 +61,7 @@ app.post("/api/notes", (req, res) => {
 // DELETE /api/notes/:id route to delete a note by ID
 app.delete("/api/notes/:id", (req, res) => {
   const noteId = req.params.id;
-  fs.readFile("db.json", "utf8", (err, data) => {
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
     if (err) {
       console.error(err);
       res.status(500).json({ error: "Internal server error" });
@@ -69,7 +70,7 @@ app.delete("/api/notes/:id", (req, res) => {
     let notes = JSON.parse(data);
     // Filter out the note with the specified ID
     notes = notes.filter((note) => note.id !== noteId);
-    fs.writeFile("db.json", JSON.stringify(notes), (err) => {
+    fs.writeFile("./db/db.json", JSON.stringify(notes), (err) => {
       if (err) {
         console.error(err);
         res.status(500).json({ error: "Internal server error" });

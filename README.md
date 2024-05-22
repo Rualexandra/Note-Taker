@@ -1,6 +1,4 @@
-# Note Taker Starter Code
-
-# My task-board
+# Note Taker Application
 
 As a small business owner I want to be able to write and save notes so that I can organize my thoughts and keep track of tasks I need to complete. To do this I have created a nore-taking application.
 
@@ -14,13 +12,10 @@ Click on the Save button and the new note entered is saved and appears in the le
 
 Click on an existing note in the list in the left-hand column
 THEN that note appears in the right-hand column and a "New Note" button appears in the navigation. Click on the "New Note" button in the navigation at the top of the page to be presented with empty fields to enter a new note title and the note’s text in the right-hand column and the button disappears.
+When clicking the trash Icon it will delete any completed or unnecessary tasks
 
 # Application:
 
-<img src="./images/Screenshot 2024-03-24 at 10.26.11 PM.png" width="50%" height="50%">
-
-<img src="./images/screenshot.png" width="50%" height="50%">
+<img src="./Develop/Screenshot 2024-05-22 at 6.17.07 PM.png" width="50%" height="50%">
 
 # Link to application:
-
-https://rualexandra.github.io/task-board/
